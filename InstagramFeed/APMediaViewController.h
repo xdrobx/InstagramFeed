@@ -12,7 +12,6 @@
 
 @property (nonatomic, strong) UIWebView* webView;
 @property (nonatomic, strong) NSString* accessToken;
-@property (nonatomic, strong) NSArray* feed;
 
 -(void)requestFeed;
 

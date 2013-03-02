@@ -30,6 +30,9 @@
 		04FDD78816DFE53D00EF4F62 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FDD78716DFE53D00EF4F62 /* MobileCoreServices.framework */; };
 		04FDD78B16DFE5BA00EF4F62 /* APInstagram.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD78A16DFE5BA00EF4F62 /* APInstagram.m */; };
 		04FDD78F16E0ADCB00EF4F62 /* APInstagramFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD78E16E0ADCB00EF4F62 /* APInstagramFeed.m */; };
+		04FDD79816E14FF900EF4F62 /* APTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD79716E14FF900EF4F62 /* APTableViewController.m */; };
+		04FDD79B16E1590000EF4F62 /* APCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD79A16E1590000EF4F62 /* APCustomTableViewCell.m */; };
+		04FDD79D16E2193600EF4F62 /* image-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD79C16E2193600EF4F62 /* image-placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +76,11 @@
 		04FDD78A16DFE5BA00EF4F62 /* APInstagram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APInstagram.m; sourceTree = "<group>"; };
 		04FDD78D16E0ADCB00EF4F62 /* APInstagramFeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APInstagramFeed.h; sourceTree = "<group>"; };
 		04FDD78E16E0ADCB00EF4F62 /* APInstagramFeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APInstagramFeed.m; sourceTree = "<group>"; };
+		04FDD79616E14FF900EF4F62 /* APTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APTableViewController.h; sourceTree = "<group>"; };
+		04FDD79716E14FF900EF4F62 /* APTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APTableViewController.m; sourceTree = "<group>"; };
+		04FDD79916E1590000EF4F62 /* APCustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APCustomTableViewCell.h; sourceTree = "<group>"; };
+		04FDD79A16E1590000EF4F62 /* APCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APCustomTableViewCell.m; sourceTree = "<group>"; };
+		04FDD79C16E2193600EF4F62 /* image-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-placeholder.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +137,10 @@
 				04FDD75216DF6C5000EF4F62 /* AppDelegate.m */,
 				04FDD75F16DF6DAF00EF4F62 /* APMediaViewController.h */,
 				04FDD76016DF6DAF00EF4F62 /* APMediaViewController.m */,
+				04FDD79616E14FF900EF4F62 /* APTableViewController.h */,
+				04FDD79716E14FF900EF4F62 /* APTableViewController.m */,
+				04FDD79916E1590000EF4F62 /* APCustomTableViewCell.h */,
+				04FDD79A16E1590000EF4F62 /* APCustomTableViewCell.m */,
 				04FDD74916DF6C5000EF4F62 /* Supporting Files */,
 			);
 			path = InstagramFeed;
@@ -138,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				04FDD74A16DF6C5000EF4F62 /* InstagramFeed-Info.plist */,
+				04FDD79C16E2193600EF4F62 /* image-placeholder.png */,
 				04FDD74B16DF6C5000EF4F62 /* InfoPlist.strings */,
 				04FDD74E16DF6C5000EF4F62 /* main.m */,
 				04FDD75016DF6C5000EF4F62 /* InstagramFeed-Prefix.pch */,
@@ -248,6 +261,7 @@
 				04FDD75516DF6C5000EF4F62 /* Default.png in Resources */,
 				04FDD75716DF6C5000EF4F62 /* Default@2x.png in Resources */,
 				04FDD75916DF6C5000EF4F62 /* Default-568h@2x.png in Resources */,
+				04FDD79D16E2193600EF4F62 /* image-placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +286,8 @@
 				04FDD78416DFE30A00EF4F62 /* UIImageView+AFNetworking.m in Sources */,
 				04FDD78B16DFE5BA00EF4F62 /* APInstagram.m in Sources */,
 				04FDD78F16E0ADCB00EF4F62 /* APInstagramFeed.m in Sources */,
+				04FDD79816E14FF900EF4F62 /* APTableViewController.m in Sources */,
+				04FDD79B16E1590000EF4F62 /* APCustomTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +400,7 @@
 				04FDD75E16DF6C5000EF4F62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

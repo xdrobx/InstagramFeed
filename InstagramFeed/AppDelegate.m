@@ -27,8 +27,6 @@
     
     [media release];
     [navigation release];
-    
-    NSLog(@"%d",[navigation retainCount]);
 
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

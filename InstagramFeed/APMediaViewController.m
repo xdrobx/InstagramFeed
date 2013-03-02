@@ -9,6 +9,7 @@
 #import "APMediaViewController.h"
 #import "APInstagram.h"
 #import "APInstagramFeed.h"
+#import "APTableViewController.h"
 //#import <QuartzCore/QuartzCore.h>
 
 @interface APMediaViewController ()
@@ -19,13 +20,11 @@
 
 @synthesize webView = _webView;
 @synthesize accessToken = _accessToken;
-@synthesize feed = _feed;
 
 -(void)dealloc{
     self.webView.delegate = nil;
     [_webView release];
     [_accessToken release];
-    [_feed release];
     [super dealloc];
 }
 
@@ -59,7 +58,7 @@
     
     //[self.view addSubview: self.gridScrollView];
     [self.view addSubview:self.webView];
-    self.feed = [[[NSArray alloc]init]autorelease];
+    //self.feed = [[[NSArray alloc]init]autorelease];
     
 }
 
@@ -71,7 +70,8 @@
 
 -(void)requestFeed{
     [APInstagramFeed getFeedMediaWithAccessToken:self.accessToken block:^(NSArray *records) {
-        self.feed = records;
+        //self.feed = records;
+        //self.feed = [[[NSArray alloc]initWithArray:records]autorelease];
         /*int item = 0, row = 0, col = 0;
         for (NSDictionary* image in records) {
             
@@ -91,11 +91,16 @@
             [self.gridScrollView addSubview:imageView];
             [self.thumbnails addObject:imageView];*/
             
-        NSLog(@"%@",[[self.feed objectAtIndex:0]username]);
+        NSLog(@"1- %d",[records count]);
+        APTableViewController* tv = [[[APTableViewController alloc]initWithFeed:records]autorelease];
+        [self.navigationController pushViewController:tv animated:NO];
+        //[tv release];
     }];
-    
-    
-    
+    /*
+    NSLog(@"1- %d",[self.feed count]);
+    APTableViewController* tv = [[APTableViewController alloc]initWithFeed:self.feed];
+    [self.navigationController pushViewController:tv animated:YES];
+    [tv release];*/
     
 }
 
