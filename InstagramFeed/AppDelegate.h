@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+//@class APMediaViewController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+//@property (strong, nonatomic) APMediaViewController* viewController;
 
 @end

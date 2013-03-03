@@ -9,6 +9,7 @@
 #import "APTableViewController.h"
 #import "APInstagramFeed.h"
 #import "APCustomTableViewCell.h"
+#import "APDetailedViewController.h"
 
 @interface APTableViewController ()
 
@@ -27,6 +28,7 @@
         self.tableView.dataSource = self;
         self.navigationItem.hidesBackButton = YES;
         self.tableView.rowHeight = 320;
+        self.navigationItem.title = @"Feed";
     }
     return self;
 }
@@ -142,6 +144,10 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+    APDetailedViewController* imageViewController = [[APDetailedViewController alloc]initWithData:[feed objectAtIndex:indexPath.row]];
+    [self.navigationController pushViewController:imageViewController animated:YES];
+    [imageViewController release];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 @end

@@ -33,6 +33,7 @@
 		04FDD79816E14FF900EF4F62 /* APTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD79716E14FF900EF4F62 /* APTableViewController.m */; };
 		04FDD79B16E1590000EF4F62 /* APCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD79A16E1590000EF4F62 /* APCustomTableViewCell.m */; };
 		04FDD79D16E2193600EF4F62 /* image-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD79C16E2193600EF4F62 /* image-placeholder.png */; };
+		04FDD7A016E223C800EF4F62 /* APDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD79F16E223C700EF4F62 /* APDetailedViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,8 @@
 		04FDD79916E1590000EF4F62 /* APCustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APCustomTableViewCell.h; sourceTree = "<group>"; };
 		04FDD79A16E1590000EF4F62 /* APCustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APCustomTableViewCell.m; sourceTree = "<group>"; };
 		04FDD79C16E2193600EF4F62 /* image-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-placeholder.png"; sourceTree = "<group>"; };
+		04FDD79E16E223C500EF4F62 /* APDetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APDetailedViewController.h; sourceTree = "<group>"; };
+		04FDD79F16E223C700EF4F62 /* APDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APDetailedViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +142,8 @@
 				04FDD76016DF6DAF00EF4F62 /* APMediaViewController.m */,
 				04FDD79616E14FF900EF4F62 /* APTableViewController.h */,
 				04FDD79716E14FF900EF4F62 /* APTableViewController.m */,
+				04FDD79E16E223C500EF4F62 /* APDetailedViewController.h */,
+				04FDD79F16E223C700EF4F62 /* APDetailedViewController.m */,
 				04FDD79916E1590000EF4F62 /* APCustomTableViewCell.h */,
 				04FDD79A16E1590000EF4F62 /* APCustomTableViewCell.m */,
 				04FDD74916DF6C5000EF4F62 /* Supporting Files */,
@@ -288,6 +293,7 @@
 				04FDD78F16E0ADCB00EF4F62 /* APInstagramFeed.m in Sources */,
 				04FDD79816E14FF900EF4F62 /* APTableViewController.m in Sources */,
 				04FDD79B16E1590000EF4F62 /* APCustomTableViewCell.m in Sources */,
+				04FDD7A016E223C800EF4F62 /* APDetailedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

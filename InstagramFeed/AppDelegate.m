@@ -11,9 +11,12 @@
 
 @implementation AppDelegate
 
+
+
 - (void)dealloc
 {
     [_window release];
+    //[_viewController release];
     [super dealloc];
 }
 
@@ -25,9 +28,13 @@
     UINavigationController* navigation = [[UINavigationController alloc] initWithRootViewController:media];
     self.window.rootViewController = navigation;
     
+    //self.viewController = [[APMediaViewController alloc] initWithNibName:@"APMediaViewController" bundle:nil];
+    //self.window.rootViewController = self.viewController;
+    
     [media release];
     [navigation release];
-
+    
+    
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
