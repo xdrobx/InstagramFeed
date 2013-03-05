@@ -7,16 +7,13 @@
 //
 
 #import "AppDelegate.h"
-#import "APMediaViewController.h"
+#import "APLogInController.h"
 
 @implementation AppDelegate
-
-
 
 - (void)dealloc
 {
     [_window release];
-    //[_viewController release];
     [super dealloc];
 }
 
@@ -24,16 +21,12 @@
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     
-    APMediaViewController* media = [[APMediaViewController alloc]init];
+    APLogInController* media = [[APLogInController alloc]init];
     UINavigationController* navigation = [[UINavigationController alloc] initWithRootViewController:media];
     self.window.rootViewController = navigation;
     
-    //self.viewController = [[APMediaViewController alloc] initWithNibName:@"APMediaViewController" bundle:nil];
-    //self.window.rootViewController = self.viewController;
-    
     [media release];
     [navigation release];
-    
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

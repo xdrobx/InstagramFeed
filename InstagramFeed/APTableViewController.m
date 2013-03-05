@@ -17,62 +17,78 @@
 
 @implementation APTableViewController
 
-@synthesize feed;
+@synthesize feed = _feed;
+@synthesize accessToken = _accessToken;
+@synthesize nextURL = _nextURL;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         self.navigationItem.hidesBackButton = YES;
         self.tableView.rowHeight = 320;
         self.navigationItem.title = @"Feed";
+        isLoadingNewPage = NO;
     }
     return self;
 }
 
--(id)initWithFeed:(NSArray *)newFeed{
+- (id)initWithAccessToken:(NSString*)newAccessToken andFeed:(NSArray *)initFeed andNextURL:(NSString *)nextPageURL{
     self = [super init];
     if (self) {
-        self.feed = [[[NSArray alloc]initWithArray:newFeed]autorelease];
+        self.accessToken = [NSString stringWithString:newAccessToken];
+        self.nextURL = nextPageURL;
+        self.feed = [[[NSArray alloc]initWithArray:initFeed]autorelease];
     }
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//request new data for tableView
+- (void)requestFeed{
+    
+    [APInstagramFeed getFeedMediaWithAccessToken:self.accessToken andPath:self.nextURL block:^(NSArray *records, NSString *nextPage) {
+        
+        self.nextURL = nextPage;
+        if(isLoadingNewPage){
+            NSArray* newFeed = [self.feed arrayByAddingObjectsFromArray:records];
+            self.feed = newFeed;
+            isLoadingNewPage = NO;
+            //NSLog(@"scroll");
+        }
+        else {
+            self.feed = records;
+            //NSLog(@"refresh");
+        }
+        
+        [self.tableView reloadData];
+    }];
+    if(isLoading)[self stopLoading];
+}
+
+//pull to refresh override
+- (void)refresh {
+    self.nextURL = @"";
+    [self performSelector:@selector(requestFeed) withObject:nil afterDelay:1.0];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-//#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    NSLog(@"2- %d",[feed count]);
-    return [feed count];
+    return [self.feed count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,50 +98,22 @@
     if (cell == nil) {
         cell = [[[APCustomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier]autorelease];
     }
-    //cell.textLabel.text = [[feed objectAtIndex:indexPath.row] username];
-    [cell setImageURL:[[feed objectAtIndex:indexPath.row]standardUrl]];
-    //NSLog(@"%@",[[feed objectAtIndex:indexPath.row]userAvatar]);
+
+    [cell setImageURL:[[self.feed objectAtIndex:indexPath.row]standardUrl]];
+    
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+//detect the bottom and add new data
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    [super scrollViewDidScroll:scrollView];
+    if(scrollView.contentOffset.y >= (scrollView.contentSize.height - 5*scrollView.bounds.size.height) && !isLoadingNewPage){
+        isLoadingNewPage = YES;
+        
+        //load the next page
+        [self requestFeed];
+    }
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 
@@ -136,18 +124,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
-    APDetailedViewController* imageViewController = [[APDetailedViewController alloc]initWithData:[feed objectAtIndex:indexPath.row]];
+    APDetailedViewController* imageViewController = [[APDetailedViewController alloc]initWithData:[self.feed objectAtIndex:indexPath.row]];
     [self.navigationController pushViewController:imageViewController animated:YES];
     [imageViewController release];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)dealloc{
+    [_nextURL release];
+    [_accessToken release];
+    [_feed release];
+    [super dealloc];
 }
 
 @end

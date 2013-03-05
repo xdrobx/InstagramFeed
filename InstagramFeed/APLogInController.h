@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface APMediaViewController : UIViewController <UIWebViewDelegate>
+@interface APLogInController : UIViewController <UIWebViewDelegate>
 
 @property (nonatomic, strong) UIWebView* webView;
 @property (nonatomic, strong) NSString* accessToken;
 
--(void)requestFeed;
+-(void)loadTableView;
 
 @end

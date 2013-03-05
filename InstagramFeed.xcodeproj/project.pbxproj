@@ -16,7 +16,7 @@
 		04FDD75516DF6C5000EF4F62 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD75416DF6C5000EF4F62 /* Default.png */; };
 		04FDD75716DF6C5000EF4F62 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD75616DF6C5000EF4F62 /* Default@2x.png */; };
 		04FDD75916DF6C5000EF4F62 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD75816DF6C5000EF4F62 /* Default-568h@2x.png */; };
-		04FDD76116DF6DAF00EF4F62 /* APMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD76016DF6DAF00EF4F62 /* APMediaViewController.m */; };
+		04FDD76116DF6DAF00EF4F62 /* APLogInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD76016DF6DAF00EF4F62 /* APLogInController.m */; };
 		04FDD77C16DFE30A00EF4F62 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD76A16DFE30A00EF4F62 /* AFHTTPClient.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		04FDD77D16DFE30A00EF4F62 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD76C16DFE30A00EF4F62 /* AFHTTPRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		04FDD77E16DFE30A00EF4F62 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD76E16DFE30A00EF4F62 /* AFImageRequestOperation.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -34,6 +34,10 @@
 		04FDD79B16E1590000EF4F62 /* APCustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD79A16E1590000EF4F62 /* APCustomTableViewCell.m */; };
 		04FDD79D16E2193600EF4F62 /* image-placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD79C16E2193600EF4F62 /* image-placeholder.png */; };
 		04FDD7A016E223C800EF4F62 /* APDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD79F16E223C700EF4F62 /* APDetailedViewController.m */; };
+		04FDD7A216E3C1FA00EF4F62 /* loading_image_placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD7A116E3C1FA00EF4F62 /* loading_image_placeholder.png */; };
+		04FDD7A516E5492400EF4F62 /* APPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FDD7A416E5492300EF4F62 /* APPullToRefresh.m */; };
+		04FDD7A716E67DE400EF4F62 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 04FDD7A616E67DE400EF4F62 /* arrow.png */; };
+		04FDD7A916E67DFF00EF4F62 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FDD7A816E67DFF00EF4F62 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,8 +54,8 @@
 		04FDD75416DF6C5000EF4F62 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		04FDD75616DF6C5000EF4F62 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		04FDD75816DF6C5000EF4F62 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		04FDD75F16DF6DAF00EF4F62 /* APMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APMediaViewController.h; sourceTree = "<group>"; };
-		04FDD76016DF6DAF00EF4F62 /* APMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APMediaViewController.m; sourceTree = "<group>"; };
+		04FDD75F16DF6DAF00EF4F62 /* APLogInController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APLogInController.h; sourceTree = "<group>"; };
+		04FDD76016DF6DAF00EF4F62 /* APLogInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APLogInController.m; sourceTree = "<group>"; };
 		04FDD76916DFE30A00EF4F62 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		04FDD76A16DFE30A00EF4F62 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		04FDD76B16DFE30A00EF4F62 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -84,6 +88,11 @@
 		04FDD79C16E2193600EF4F62 /* image-placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-placeholder.png"; sourceTree = "<group>"; };
 		04FDD79E16E223C500EF4F62 /* APDetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APDetailedViewController.h; sourceTree = "<group>"; };
 		04FDD79F16E223C700EF4F62 /* APDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APDetailedViewController.m; sourceTree = "<group>"; };
+		04FDD7A116E3C1FA00EF4F62 /* loading_image_placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading_image_placeholder.png; sourceTree = "<group>"; };
+		04FDD7A316E5492100EF4F62 /* APPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPullToRefresh.h; sourceTree = "<group>"; };
+		04FDD7A416E5492300EF4F62 /* APPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPullToRefresh.m; sourceTree = "<group>"; };
+		04FDD7A616E67DE400EF4F62 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		04FDD7A816E67DFF00EF4F62 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04FDD7A916E67DFF00EF4F62 /* QuartzCore.framework in Frameworks */,
 				04FDD78816DFE53D00EF4F62 /* MobileCoreServices.framework in Frameworks */,
 				04FDD78616DFE53300EF4F62 /* SystemConfiguration.framework in Frameworks */,
 				04FDD74316DF6C5000EF4F62 /* UIKit.framework in Frameworks */,
@@ -123,6 +133,7 @@
 		04FDD74116DF6C5000EF4F62 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04FDD7A816E67DFF00EF4F62 /* QuartzCore.framework */,
 				04FDD78716DFE53D00EF4F62 /* MobileCoreServices.framework */,
 				04FDD78516DFE53300EF4F62 /* SystemConfiguration.framework */,
 				04FDD74216DF6C5000EF4F62 /* UIKit.framework */,
@@ -138,14 +149,16 @@
 				04FDD76716DFE2A200EF4F62 /* APInstagram */,
 				04FDD75116DF6C5000EF4F62 /* AppDelegate.h */,
 				04FDD75216DF6C5000EF4F62 /* AppDelegate.m */,
-				04FDD75F16DF6DAF00EF4F62 /* APMediaViewController.h */,
-				04FDD76016DF6DAF00EF4F62 /* APMediaViewController.m */,
+				04FDD75F16DF6DAF00EF4F62 /* APLogInController.h */,
+				04FDD76016DF6DAF00EF4F62 /* APLogInController.m */,
 				04FDD79616E14FF900EF4F62 /* APTableViewController.h */,
 				04FDD79716E14FF900EF4F62 /* APTableViewController.m */,
 				04FDD79E16E223C500EF4F62 /* APDetailedViewController.h */,
 				04FDD79F16E223C700EF4F62 /* APDetailedViewController.m */,
 				04FDD79916E1590000EF4F62 /* APCustomTableViewCell.h */,
 				04FDD79A16E1590000EF4F62 /* APCustomTableViewCell.m */,
+				04FDD7A316E5492100EF4F62 /* APPullToRefresh.h */,
+				04FDD7A416E5492300EF4F62 /* APPullToRefresh.m */,
 				04FDD74916DF6C5000EF4F62 /* Supporting Files */,
 			);
 			path = InstagramFeed;
@@ -156,6 +169,8 @@
 			children = (
 				04FDD74A16DF6C5000EF4F62 /* InstagramFeed-Info.plist */,
 				04FDD79C16E2193600EF4F62 /* image-placeholder.png */,
+				04FDD7A616E67DE400EF4F62 /* arrow.png */,
+				04FDD7A116E3C1FA00EF4F62 /* loading_image_placeholder.png */,
 				04FDD74B16DF6C5000EF4F62 /* InfoPlist.strings */,
 				04FDD74E16DF6C5000EF4F62 /* main.m */,
 				04FDD75016DF6C5000EF4F62 /* InstagramFeed-Prefix.pch */,
@@ -267,6 +282,8 @@
 				04FDD75716DF6C5000EF4F62 /* Default@2x.png in Resources */,
 				04FDD75916DF6C5000EF4F62 /* Default-568h@2x.png in Resources */,
 				04FDD79D16E2193600EF4F62 /* image-placeholder.png in Resources */,
+				04FDD7A216E3C1FA00EF4F62 /* loading_image_placeholder.png in Resources */,
+				04FDD7A716E67DE400EF4F62 /* arrow.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +296,7 @@
 			files = (
 				04FDD74F16DF6C5000EF4F62 /* main.m in Sources */,
 				04FDD75316DF6C5000EF4F62 /* AppDelegate.m in Sources */,
-				04FDD76116DF6DAF00EF4F62 /* APMediaViewController.m in Sources */,
+				04FDD76116DF6DAF00EF4F62 /* APLogInController.m in Sources */,
 				04FDD77C16DFE30A00EF4F62 /* AFHTTPClient.m in Sources */,
 				04FDD77D16DFE30A00EF4F62 /* AFHTTPRequestOperation.m in Sources */,
 				04FDD77E16DFE30A00EF4F62 /* AFImageRequestOperation.m in Sources */,
@@ -294,6 +311,7 @@
 				04FDD79816E14FF900EF4F62 /* APTableViewController.m in Sources */,
 				04FDD79B16E1590000EF4F62 /* APCustomTableViewCell.m in Sources */,
 				04FDD7A016E223C800EF4F62 /* APDetailedViewController.m in Sources */,
+				04FDD7A516E5492400EF4F62 /* APPullToRefresh.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

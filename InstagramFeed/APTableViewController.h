@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APPullToRefresh.h"
 
-@interface APTableViewController : UITableViewController
+@interface APTableViewController : APPullToRefresh
+{
+    BOOL isLoadingNewPage;//if loading new data when scrolling then YES
+}
 
-@property (nonatomic, strong)NSArray* feed;
+@property (nonatomic, strong) NSArray* feed;
+@property (nonatomic, strong) NSString* accessToken;
+@property (nonatomic, strong) NSString* nextURL;
 
--(id)initWithFeed:(NSArray*)newFeed;
+- (id) initWithAccessToken:(NSString*)newAccessToken andFeed:(NSArray*)initFeed andNextURL:(NSString*)nextPageURL;
+- (void) requestFeed;
 
 @end

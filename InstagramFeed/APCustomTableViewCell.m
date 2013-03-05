@@ -33,7 +33,7 @@
 -(void)setImageURL:(NSString *)url{
     imageURL = url;
     //self.textLabel.text = imageURL;
-    [self.imageView setImageWithURL:[NSURL URLWithString:imageURL]placeholderImage:[UIImage imageNamed:@"image-placeholder.png"]];
+    [self.imageView setImageWithURL:[NSURL URLWithString:imageURL]placeholderImage:[UIImage imageNamed:@"loading_image_placeholder.png"]];
 }
 
 #pragma mark - UIView

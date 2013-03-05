@@ -6,17 +6,16 @@
 //  Copyright (c) 2013 mac. All rights reserved.
 //
 
-#import "APMediaViewController.h"
+#import "APLogInController.h"
 #import "APInstagram.h"
 #import "APInstagramFeed.h"
 #import "APTableViewController.h"
-//#import <QuartzCore/QuartzCore.h>
 
-@interface APMediaViewController ()
+@interface APLogInController ()
 
 @end
 
-@implementation APMediaViewController
+@implementation APLogInController
 
 @synthesize webView = _webView;
 @synthesize accessToken = _accessToken;
@@ -53,18 +52,9 @@
                                   [NSString stringWithFormat:kAuthenticationEndpoint, kClientId, kRedirectUrl]]];
     
     [self.webView loadRequest:request];
-    
-    //[self.view addSubview: self.gridScrollView];
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    //self.navigationItem.title = @"Log in";
     [self.view addSubview:self.webView];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	NSLog(@"opa");
-    
-    self.navigationItem.title = @"Log in";
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,20 +63,15 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)requestFeed{
-    [APInstagramFeed getFeedMediaWithAccessToken:self.accessToken block:^(NSArray *records) {
+-(void)loadTableView{
+    
+    [APInstagramFeed getFeedMediaWithAccessToken:self.accessToken andPath:@"" block:^(NSArray *records, NSString *nextPage){
             
-        NSLog(@"1- %d",[records count]);
-        APTableViewController* tv = [[APTableViewController alloc]initWithFeed:records];
+        APTableViewController* tv = [[APTableViewController alloc]initWithAccessToken:self.accessToken andFeed:records andNextURL:nextPage];
+        [[self navigationController] setNavigationBarHidden:NO animated:NO];
         [self.navigationController pushViewController:tv animated:YES];
         [tv release];
     }];
-    /*
-    NSLog(@"1- %d",[self.feed count]);
-    APTableViewController* tv = [[APTableViewController alloc]initWithFeed:self.feed];
-    [self.navigationController pushViewController:tv animated:YES];
-    [tv release];*/
-    
 }
 
 #pragma mark - Web view delegate
@@ -99,14 +84,13 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     if ([request.URL.absoluteString rangeOfString:@"#"].location != NSNotFound) {
         NSString* params = [[request.URL.absoluteString componentsSeparatedByString:@"#"] objectAtIndex:1];
         self.accessToken = [params stringByReplacingOccurrencesOfString:@"access_token=" withString:@""];
-        self.webView.hidden = YES;
+        //self.webView.hidden = YES;
         
-        //[self.webView removeFromSuperview];
-        //self.webView = nil;
+        [self.webView removeFromSuperview];
+        self.webView = nil;
         self.webView.delegate = nil;
-        //[_webView release];
-        [self requestFeed];
-        //NSLog(@"logged %d",[self.webView retainCount]);
+        [_webView release];
+        [self loadTableView];
     }
     
 	return YES;

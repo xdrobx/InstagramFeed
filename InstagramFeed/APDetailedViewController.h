@@ -14,7 +14,6 @@
 @property (nonatomic, strong) NSString* photoURL;
 @property (nonatomic, strong) NSString* avatarURL;
 @property (nonatomic, strong) NSString* username;
-//@property (nonatomic, strong) NSString* likes;
 
 -(id)initWithData:(APInstagramFeed*)data;
 

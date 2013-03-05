@@ -54,7 +54,7 @@ NSString * const kFeedEndpoint = @"https://api.instagram.com/v1/users/self/feed?
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
-        _sharedClient = [[[self alloc] initWithBaseURL:[NSURL URLWithString:kInstagramBaseURLString]]autorelease];
+        _sharedClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:kInstagramBaseURLString]];
     });
     
     return _sharedClient;
