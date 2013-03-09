@@ -9,6 +9,7 @@
 #import "APLogInController.h"
 #import "APInstagram.h"
 #import "APInstagramFeed.h"
+#import "APUserMedia.h"
 #import "APTableViewController.h"
 
 @interface APLogInController ()
@@ -57,12 +58,6 @@
     [self.view addSubview:self.webView];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)loadTableView{
     
     [APInstagramFeed getFeedMediaWithAccessToken:self.accessToken andPath:@"" block:^(NSArray *records, NSString *nextPage){
@@ -84,7 +79,6 @@ shouldStartLoadWithRequest:(NSURLRequest *)request
     if ([request.URL.absoluteString rangeOfString:@"#"].location != NSNotFound) {
         NSString* params = [[request.URL.absoluteString componentsSeparatedByString:@"#"] objectAtIndex:1];
         self.accessToken = [params stringByReplacingOccurrencesOfString:@"access_token=" withString:@""];
-        //self.webView.hidden = YES;
         
         [self.webView removeFromSuperview];
         self.webView = nil;

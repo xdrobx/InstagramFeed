@@ -8,6 +8,7 @@
 
 #import "APTableViewController.h"
 #import "APInstagramFeed.h"
+#import "APUserMedia.h"
 #import "APCustomTableViewCell.h"
 #import "APDetailedViewController.h"
 
@@ -20,6 +21,7 @@
 @synthesize feed = _feed;
 @synthesize accessToken = _accessToken;
 @synthesize nextURL = _nextURL;
+@synthesize upButton;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -45,8 +47,17 @@
     return self;
 }
 
-- (void)viewDidLoad{
-    [super viewDidLoad];
+- (void)loadView{
+    [super loadView];
+    upButton = [[UIBarButtonItem alloc]
+                                   initWithTitle:@"Up"
+                                   style:UIBarButtonItemStyleBordered
+                                   target:self
+                                   action:@selector(scrollToTheTop)];
+}
+
+- (void)scrollToTheTop{
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
 }
 
 //request new data for tableView
@@ -68,7 +79,9 @@
         
         [self.tableView reloadData];
     }];
+    
     if(isLoading)[self stopLoading];
+    
 }
 
 //pull to refresh override
@@ -98,7 +111,7 @@
     if (cell == nil) {
         cell = [[[APCustomTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier]autorelease];
     }
-
+    
     [cell setImageURL:[[self.feed objectAtIndex:indexPath.row]standardUrl]];
     
     return cell;
@@ -109,22 +122,29 @@
     [super scrollViewDidScroll:scrollView];
     if(scrollView.contentOffset.y >= (scrollView.contentSize.height - 5*scrollView.bounds.size.height) && !isLoadingNewPage){
         isLoadingNewPage = YES;
-        
+
         //load the next page
         [self requestFeed];
+    }
+    
+    //bar button appearance
+    if(scrollView.contentOffset.y >= scrollView.bounds.size.height){
+        [self.navigationItem setRightBarButtonItem:upButton animated:YES];
+    }
+    else{
+        [self.navigationItem setRightBarButtonItem:nil animated:YES];
     }
 }
 
 #pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //[CustomTableViewCell heightForCellWithPost:[_posts objectAtIndex:indexPath.row]];
     return 320;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    APDetailedViewController* imageViewController = [[APDetailedViewController alloc]initWithData:[self.feed objectAtIndex:indexPath.row]];
+    APDetailedViewController* imageViewController = [[APDetailedViewController alloc]initWithData:[self.feed objectAtIndex:indexPath.row]andAccessToken:self.accessToken];
     [self.navigationController pushViewController:imageViewController animated:YES];
     [imageViewController release];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -134,6 +154,7 @@
     [_nextURL release];
     [_accessToken release];
     [_feed release];
+    [upButton release];
     [super dealloc];
 }
 

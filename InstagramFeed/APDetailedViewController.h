@@ -8,13 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "APInstagramFeed.h"
+#import "APUserMedia.h"
 
 @interface APDetailedViewController : UIViewController
 
 @property (nonatomic, strong) NSString* photoURL;
 @property (nonatomic, strong) NSString* avatarURL;
 @property (nonatomic, strong) NSString* username;
+@property (nonatomic, strong) NSString* mediaId;
+@property (nonatomic, strong) NSString* accessToken;
+@property (nonatomic, strong) UIButton* likeButton;
 
--(id)initWithData:(APInstagramFeed*)data;
-
+- (id)initWithData:(APUserMedia*)data andAccessToken:(NSString*)accessToken;
+- (void)buttonPressed;
+- (void)reloadMedia;
 @end

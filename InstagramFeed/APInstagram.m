@@ -22,18 +22,10 @@ NSString * const kUserMediaRecentEndpoint = @"users/%@/media/recent";
 NSString * const kAuthenticationEndpoint = @"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token";
 NSString * const kPopularsEndpoint = @"https://api.instagram.com/v1/media/popular?client_id=%@&access_token=%@";
 NSString * const kFeedEndpoint = @"https://api.instagram.com/v1/users/self/feed?access_token=%@";
+NSString * const kMediaEndpoint = @"https://api.instagram.com/v1/media/%@?access_token=%@";
+NSString * const kPostLikeEndpoint = @"https://api.instagram.com/v1/media/%@/likes?access_token=%@";
 
 @implementation APInstagram
-
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
 
 - (id)initWithBaseURL:(NSURL *)url
 {

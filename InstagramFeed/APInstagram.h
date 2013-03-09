@@ -20,6 +20,8 @@ extern NSString * const kUserMediaRecentEndpoint;
 extern NSString * const kAuthenticationEndpoint;
 extern NSString * const kPopularsEndpoint;
 extern NSString * const kFeedEndpoint;
+extern NSString * const kPostLikeEndpoint;
+extern NSString * const kMediaEndpoint;
 
 @interface APInstagram : AFHTTPClient
 

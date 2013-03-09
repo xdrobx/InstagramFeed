@@ -16,5 +16,6 @@
 
 @property (nonatomic, strong) NSString* imageURL;
 @property (nonatomic, strong) NSString* username;
+@property (nonatomic, strong) NSString* avatarURL;
 
 @end

@@ -13,16 +13,8 @@
 
 @synthesize username = _username;
 @synthesize standardUrl = _standardUrl;
-@synthesize likes = _likes;
 @synthesize userAvatar = _userAvatar;
-
--(void)dealloc{
-    [_username release];
-    [_standardUrl release];
-    [_userAvatar release];
-    
-    [super dealloc];
-}
+@synthesize mediaId = _mediaId;
 
 - (id)initWithAttributes:(NSDictionary *)attributes {
     self = [super init];
@@ -31,16 +23,15 @@
     }
     
     self.standardUrl = [[[attributes valueForKeyPath:@"images"] valueForKeyPath:@"low_resolution"] valueForKeyPath:@"url"];
-    self.likes = [[[attributes objectForKey:@"likes"] valueForKey:@"count"] integerValue];
     self.username = [[attributes valueForKeyPath:@"user"] valueForKey:@"username"];
     self.userAvatar = [[attributes valueForKeyPath:@"user"] valueForKey:@"profile_picture"];
+    self.mediaId = [attributes valueForKeyPath:@"id"];
     return self;
 }
 
 + (void)getFeedMediaWithAccessToken:(NSString *)accessToken andPath:(NSString *)certainPath block:(void (^)(NSArray *records, NSString* nextPage))block
 {
-    NSNumber *count = [NSNumber numberWithInt:20];
-    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:accessToken, @"access_token", count,@"count", nil];
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:accessToken, @"access_token", nil];
     
     NSString* path = nil;
     if([certainPath isEqualToString:@""])
@@ -72,6 +63,15 @@
                                         block([NSArray array],@"");
                                     }
                                 }];
+}
+
+-(void)dealloc{
+    [_username release];
+    [_standardUrl release];
+    [_userAvatar release];
+    [_mediaId release];
+    
+    [super dealloc];
 }
 
 @end

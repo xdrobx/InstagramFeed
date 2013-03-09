@@ -17,8 +17,10 @@
 @property (nonatomic, strong) NSArray* feed;
 @property (nonatomic, strong) NSString* accessToken;
 @property (nonatomic, strong) NSString* nextURL;
+@property (nonatomic, strong) UIBarButtonItem* upButton; //scroll on the top
 
 - (id) initWithAccessToken:(NSString*)newAccessToken andFeed:(NSArray*)initFeed andNextURL:(NSString*)nextPageURL;
 - (void) requestFeed;
+- (void) scrollToTheTop;
 
 @end
